@@ -1,0 +1,11 @@
+<root main_tree_to_execute = "MainTree" >
+
+     <BehaviorTree ID="MainTree">
+        <Fallback name="root_sequence">
+            <RobotTask1   name="task1"/>
+            <RobotTask2   name="task2"/>
+            <RobotTask3   name="task3"/>
+        </Fallback>
+     </BehaviorTree>
+
+ </root>

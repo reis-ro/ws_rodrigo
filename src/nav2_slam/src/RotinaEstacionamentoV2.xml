@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="3">
+    <BehaviorTree ID="RotinaEstacionamento">
+        <Sequence>
+            <Fallback>
+                <ForaPosicaoInicial PosicaoCones="" Pose="" /> <!--verifica se NÃO está na posição inicial-->
+                <Sequence>
+                    <Etapa1 PosicaoCones="" Pose="" ComandoControle=""/> <!--ré com volante para direita-->
+                    <Fallback> 
+                        <Etapa2 PosicaoCones="" Pose="" ComandoControle=""/> <!-- ré pra esquerda, sucesso se fica paralelo-->
+                        <Etapa4 PosicaoCones="" Pose="" ComandoControle=""/> <!--vai pra frente com volante pra direita-->
+                    </Fallback>
+                    <Etapa3 PosicaoCones="" Pose="" ComandoControle=""/> <!-- vai pra frente com volante reto até o centro (mais proximo)-->
+                </Sequence>
+            </Fallback>
+            <Para ComandoControle=""/> <!--se não está na posição inicial, ou algo deu errado, sai do fallback e vem pra ca (se pa melhor só parar)-->
+        </Sequence>
+    </BehaviorTree>
+
+    <TreeNodesModel>
+    <Action ID="Etapa1"
+      editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa1"
+      editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa1"
+      editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa1"
+      editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Para"
+      editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Condition ID="ForaPosicaoInicial"
+               editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+    </Condition>
+  </TreeNodesModel>
+
+</root>

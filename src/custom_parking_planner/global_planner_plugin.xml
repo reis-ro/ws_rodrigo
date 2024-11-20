@@ -1,0 +1,5 @@
+<library path="custom_parking_planner_plugin">
+	<class type="custom_parking_planner::CustomParkingPlanner" base_class_type="nav2_core::GlobalPlanner">
+	  <description>Custom planner for parallel parking.</description>
+	</class>
+</library>

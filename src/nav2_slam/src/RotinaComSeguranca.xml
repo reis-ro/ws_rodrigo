@@ -1,0 +1,85 @@
+<root BTCPP_format="3"> 
+    <include path="./RotinaEstacionamento.xml" />
+    <BehaviorTree ID="RotinaComSeguranca">
+        <Sequence>
+            <Fallback>
+                <MuitoPertoCones PosicaoCones="" Pose="" /> <!--criar esse nó seguranca, se chegar mt perto sai do fallback-->
+                <SubTree ID="RotinaEstacionamento">
+            </Fallback>
+            <ParaTudo/> <!--algum nó de parada caso chegue mt perto dos cones, ou termine estacionamento-->
+        </Sequence>
+    </BehaviorTree>
+
+
+    <TreeNodesModel>
+    <Condition ID="MuitoPertoCones" editable="true">
+        <input_port name="PosicaoCones"/>
+        <input_port name="Pose"/>
+    </Condition>
+    <Action ID="Etapa1"
+      editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa2"
+      editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa3"
+      editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa4"
+      editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Para"
+      editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Condition ID="ForaPosicaoInicial"
+               editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+    </Condition>
+    <Condition ID="PróximoAoCentroDaVaga"
+               editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+    </Condition>
+    <Condition ID="FicarParaleloAVaga"
+               editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+    </Condition>
+    <BehaviorTree ID="RotinaEstacionamento">
+        <Sequence>
+            <Fallback>
+                <ForaPosicaoInicial PosicaoCones="" Pose="" /> <!--verifica se NÃO está na posição inicial-->
+                <Sequence>
+                    <Fallback>
+                        <ProximoAoCentroDaVaga PosicaoCones="" Pose=""/> <!--até chegar próximo ao centro-->
+                        <Etapa1 ComandoControle=""/> <!--ré com volante para direita-->
+                    </Fallback>
+                    <Fallback> 
+                        <Fallback>
+                            <FicarParaleloAVaga PosicaoCones="" Pose=""/> <!--se ficar paralelo-->
+                            <Etapa2 PosicaoCones="" Pose="" ComandoControle=""/> <!-- ré pra esquerda, falha se chegar próximo ao cone-->
+                        </Fallback>
+                        <Fallback>
+                            <FicarParaleloAVaga PosicaoCones="" Pose=""/> <!--ate ficar paralelo-->
+                            <Etapa4 ComandoControle=""/> <!--vai pra frente com volante pra direita-->
+                        </Fallback>
+                    </Fallback>
+                    <Fallback>
+                        <ProximoAoCentroDaVaga PosicaoCones="" Pose=""/> <!--até chegar próximo ao centro-->
+                        <Etapa3 ComandoControle=""/> <!-- vai pra frente com volante reto até o centro (mais proximo)-->
+                    </Fallback>
+                </Sequence>
+            </Fallback>
+            <Para ComandoControle=""/> <!--se não está na posição inicial, ou algo deu errado, sai do fallback e vem pra ca (se pa melhor só parar)-->
+        </Sequence>
+    </BehaviorTree>
+  </TreeNodesModel>
+</root>

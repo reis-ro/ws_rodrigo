@@ -1,0 +1,54 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/gmsie/main_ws/install/stereo_image_proc/include/**",
+        "/home/gmsie/main_ws/install/image_proc/include/**",
+        "/home/gmsie/main_ws/install/tracetools_image_pipeline/include/**",
+        "/home/gmsie/main_ws/install/pcl_ros/include/**",
+        "/home/gmsie/main_ws/install/pcl_conversions/include/**",
+        "/home/gmsie/main_ws/install/isaac_ros_stereo_image_proc/include/**",
+        "/home/gmsie/main_ws/install/isaac_ros_nvengine/include/**",
+        "/home/gmsie/main_ws/install/isaac_ros_nvengine_interfaces/include/**",
+        "/home/gmsie/main_ws/install/isaac_ros_image_proc/include/**",
+        "/home/gmsie/main_ws/install/isaac_ros_common/include/**",
+        "/home/gmsie/main_ws/install/image_view/include/**",
+        "/home/gmsie/main_ws/install/image_rotate/include/**",
+        "/home/gmsie/main_ws/install/image_publisher/include/**",
+        "/home/gmsie/main_ws/install/depth_image_proc/include/**",
+        "/opt/carla-ros-bridge/install/carla_waypoint_types/include/**",
+        "/opt/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/**",
+        "/opt/carla-ros-bridge/install/carla_ackermann_msgs/include/**",
+        "/opt/carla-ros-bridge/install/carla_msgs/include/**",
+        "/opt/ros/foxy/include/**",
+        "/home/gmsie/main_ws/src/carla_testbench/include/**",
+        "/home/gmsie/main_ws/src/image_pipeline/depth_image_proc/include/**",
+        "/home/gmsie/main_ws/src/image_pipeline/image_proc/include/**",
+        "/home/gmsie/main_ws/src/image_pipeline/image_publisher/include/**",
+        "/home/gmsie/main_ws/src/image_pipeline/image_rotate/include/**",
+        "/home/gmsie/main_ws/src/image_pipeline/image_view/include/**",
+        "/home/gmsie/main_ws/src/image_pipeline/stereo_image_proc/include/**",
+        "/home/gmsie/main_ws/src/image_pipeline/tracetools_image_pipeline/include/**",
+        "/home/gmsie/main_ws/src/isaac_ros_common/isaac_ros_common/include/**",
+        "/home/gmsie/main_ws/src/isaac_ros_common/isaac_ros_nvengine/include/**",
+        "/home/gmsie/main_ws/src/isaac_ros_image_pipeline/isaac_ros_image_proc/include/**",
+        "/home/gmsie/main_ws/src/isaac_ros_image_pipeline/isaac_ros_stereo_image_proc/include/**",
+        "/home/gmsie/main_ws/src/maneuver_camera/include/**",
+        "/home/gmsie/main_ws/src/perception_pcl/pcl_conversions/include/**",
+        "/home/gmsie/main_ws/src/perception_pcl/pcl_ros/include/**",
+        "/home/gmsie/main_ws/src/sliding_control/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

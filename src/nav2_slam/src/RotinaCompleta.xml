@@ -1,0 +1,10 @@
+<root BTCPP_format="3">
+    <include path="./RotinaComSeguranca.xml" />
+    <include path="./NavToPose.xml" />
+    <BehaviorTree ID="RotinaCompleta">
+        <Sequence>
+            <SubTree ID="NavToPose"> <!--talvez o goal to pose do carla seja melhor-->
+            <SubTree ID="RotinaComSeguranca"/>
+        </Sequence>
+    </BehaviorTree>
+</root>

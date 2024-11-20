@@ -1,0 +1,30 @@
+launch:
+
+  - node:
+      pkg: "pointcloud_to_laserscan"
+      exec: "pointcloud_to_laserscan_node"
+      name: "pointcloud_to_laserscan"
+      remap:
+        - from: /cloud_in
+          to: /carla/ego_vehicle/lidar
+        # - from: /scan
+        #   to: /points_to_laserscan
+      param:
+        - name: "min_height"
+          value: -2.34
+        # - name: "max_height"
+        #   value: 2.0
+      #   - name: "timeout"
+      #     value: "$(var timeout)"
+      #   - name: "passive"
+      #     value: "$(var passive)"
+      #   - name: "synchronous_mode"
+      #     value: "$(var synchronous_mode)"
+      #   - name: "synchronous_mode_wait_for_vehicle_control_command"
+      #     value: "$(var synchronous_mode_wait_for_vehicle_control_command)"
+      #   - name: "fixed_delta_seconds"
+      #     value: "$(var fixed_delta_seconds)"
+      #   - name: "town"
+      #     value: "$(var town)"
+      #   - name: "register_all_sensors"
+      #     value: "$(var register_all_sensors)"

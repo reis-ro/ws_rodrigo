@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="3">
+  <BehaviorTree ID="RotinaComSeguranca2">
+    <Sequence>
+      <Fallback>
+        <MuitoProximoCones PosicaoCones=""
+                           Pose=""/>
+        <SubTree ID="RotinaEstacionamento"/>
+      </Fallback>
+      <ParaTudo ComandoControle=""/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="RotinaEstacionamento">
+    <Sequence>
+      <Fallback>
+        <ForaPosicaoInicial PosicaoCones=""
+                            Pose=""/>
+        <Sequence>
+          <Fallback>
+            <ProximoAoCentroDaVaga PosicaoCones=""
+                                   Pose=""/>
+            <Etapa1 ComandoControle=""/>
+          </Fallback>
+          <Fallback>
+            <Fallback>
+              <FicarParaleloAVaga PosicaoCones=""
+                                  Pose=""/>
+              <Etapa2 PosicaoCones=""
+                      Pose=""
+                      ComandoControle=""/>
+            </Fallback>
+            <Fallback>
+              <FicarParaleloAVaga PosicaoCones=""
+                                  Pose=""/>
+              <Etapa4 ComandoControle=""/>
+            </Fallback>
+          </Fallback>
+          <Fallback>
+            <ProximoAoCentroDaVaga PosicaoCones=""
+                                   Pose=""/>
+            <Etapa3 ComandoControle=""/>
+          </Fallback>
+        </Sequence>
+      </Fallback>
+      <Para ComandoControle=""/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="Etapa1"
+            editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa2"
+            editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa3"
+            editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="Etapa4"
+            editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Condition ID="FicarParaleloAVaga"
+               editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+    </Condition>
+    <Condition ID="ForaPosicaoInicial"
+               editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+    </Condition>
+    <Condition ID="MuitoProximoCones"
+               editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+    </Condition>
+    <Action ID="Para"
+            editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Action ID="ParaTudo"
+            editable="true">
+      <output_port name="ComandoControle"/>
+    </Action>
+    <Condition ID="ProximoAoCentroDaVaga"
+               editable="true">
+      <input_port name="PosicaoCones"/>
+      <input_port name="Pose"/>
+    </Condition>
+  </TreeNodesModel>
+
+</root>

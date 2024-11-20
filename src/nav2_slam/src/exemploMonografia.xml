@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="3">
+  <BehaviorTree ID="exemploMonografia">
+    <Fallback>
+      <Sequence>
+        <VerificarBateria/>
+        <Sequence>
+          <MoverParaPonto Ponto=""/>
+          <SelecionaProximoPonto Ponto=""
+                                 teste=""/>
+        </Sequence>
+      </Sequence>
+      <Recarregar/>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="MoverParaPonto"
+            editable="true">
+      <input_port name="Ponto"/>
+    </Action>
+    <Action ID="Recarregar"
+            editable="true"/>
+    <Action ID="SelecionaProximoPonto"
+            editable="true">
+      <inout_port name="Ponto"/>
+      <output_port name="teste"/>
+    </Action>
+    <Condition ID="VerificarBateria"
+               editable="true"/>
+  </TreeNodesModel>
+
+</root>
